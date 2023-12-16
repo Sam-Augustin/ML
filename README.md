@@ -27,4 +27,5 @@ diseases will help provide proper treatment on time.
 Accurate predictions by such a model will provide aid
 to maintaining a healthy animal lifestyle which in turn
 will boost the production of livestock products that will
-satisfy the increasing demands.
+satisfy the increasing demands.The model uses SVM, Random forest and Naïve Bayes algorithms
+to predict disease.
