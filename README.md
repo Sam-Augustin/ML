@@ -29,3 +29,5 @@ to maintaining a healthy animal lifestyle which in turn
 will boost the production of livestock products that will
 satisfy the increasing demands.The model uses SVM, Random forest and Naive Bayes algorithms
 to predict disease.
+
+-NOTE that the models is trained using SVM, Random forest and Naive Bayes algorithms and turned into a pickle file "rftuned.pkl".
