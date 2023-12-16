@@ -1,0 +1,387 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>VETCARE</title>
+	
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" >
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+	<script src="{% static '/js/modernizr.js' %}"></script>
+	<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+	{% if messages %}
+	{% for message in messages %}
+	 {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+	{% endfor %}
+
+{% endif %}
+	<!-- ====================================================
+	header section -->
+	<header class="top-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-5 header-logo">
+					<br>
+					<a href="index.html"><img src="{%static 'img/logo.png' %}" alt="" class="img-responsive logo"></a>
+				</div>
+
+				<div class="col-md-7">
+					<nav class="navbar navbar-default">
+					  <div class="container-fluid nav-bar">
+					    <!-- Brand and toggle get grouped for better mobile display -->
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					    </div>
+
+					    <!-- Collect the nav links, forms, and other content for toggling -->
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					      
+					      <ul class="nav navbar-nav navbar-right">
+					        <li><a class="menu active" href="#home" ></a></li>
+					        <li><a class="menu" href="#about">healthcare(
+								स्वास्थ्य सेवा)</a></li>
+					        <li><a class="menu" href="#service">our services </a></li>
+					        <li><a class="menu" href="#team">Achievers</a></li>
+					        <li><a class="menu" href="{% url 'listing' %}"> Doctor Login</a></li>
+							<li><a class="menu" href="{% url 'prediction' %}"> Disease prediction(
+								रोग का पता लगाएं)</a></li>
+							
+					      </ul>
+					    </div><!-- /navbar-collapse -->
+					  </div><!-- / .container-fluid -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header> <!-- end of header area -->
+
+
+	<section class="slider" id="home">
+		<div class="container-fluid">
+			<div class="row">
+			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+					<div class="header-backup"></div>
+			        <!-- Wrapper for slides -->
+			        <div class="carousel-inner" role="listbox">
+			            <div class="item active">
+			            	<img src="{% static 'img/slide-one.jpg' %}" alt="">
+			                <div class="carousel-caption">
+		               			<h1>providing</h1>
+		               			<p>highquality service for livestock</p>
+		               			<a href="{% url 'Appoint' %}"><font size="+10">Book an Appointment</font></a>
+			                </div>
+			            </div>
+			            <div class="item">
+			            	<img src="{% static 'img/slide-two.jpeg' %}" alt="">
+			                <div class="carousel-caption">
+		               			<h1>providing</h1>
+		               			<p>highquality service for livestock</p>
+		               			<a href="{% url 'Appoint' %}"><font size="+10">Book an Appointment</font></a>
+			                </div>
+			            </div>
+			            <div class="item">
+			            	<img src="{% static 'img/slide-three.jpg' %}" alt="">
+			                <div class="carousel-caption">
+		               			<h1>providing</h1>
+		               			<p>highquality service for livestock</p>
+		               			<a href="{% url 'Appoint' %}"><font size="+10">Book an Appointment</font></a>
+			                </div>
+			            </div>
+			            <div class="item">
+			            	<img src="{% static 'img/slide-four.jpg' %}" alt="">
+			                <div class="carousel-caption">
+		               			<h1>providing</h1>
+		               			<p>highquality service for livestock</p>
+		               			<a href="{% url 'Appoint' %}"><font size="+10">Book an Appointment</font></a>
+			                </div>
+			            </div>
+			        </div>
+			        <!-- Controls -->
+			        <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev">
+			            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			            <span class="sr-only">Previous</span>
+			        </a>
+			        <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next">
+			            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			            <span class="sr-only">Next</span>
+			        </a>
+			    </div>
+			</div>
+		</div>
+	</section><!-- end of slider section -->
+	<section class="about text-center" id="schedule">
+	<!-- about section -->
+	<section class="about text-center" id="about">
+		<div class="container">
+			
+			<div class="row">
+				<h2>animal healthcare</h2>
+				<h4>We aim at providing Health Care facilities to the Livestock in India and reach out to Rural Areas in these times of a Global Pandemic</h4>
+				<div class="col-md-4 col-sm-6">
+					<div class="single-about-detail clearfix">
+						<div class="about-img">
+							<img class="img-responsive" src="{% static 'img/item1.jpg' %}" alt="">
+						</div>
+						<div class="about-details">
+							<div class="pentagon-text">
+								<h1>D</h1>
+							</div>
+							
+							<h3>Diseases found in animals</h3>
+							<h3>(पशुओं में पाए जाने वाले रोग)</h3>
+							<p>you know how important it is to be able to identify livestock illness symptoms and properly treat the animal
+								once it is sick. Prevention is always better tha cure.
+								 </p>
+								<a href="{% url 'Diseases' %}"> <font size="+2">click here for details</font></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="single-about-detail">
+						<div class="about-img">
+								<img class="img-responsive" src="{% static 'img/item2.jpg' %}" alt="">
+						</div>
+						<div class="about-details">
+							<div class="pentagon-text">
+								<h1>F</h1>
+							</div>
+
+							<h3>Fatal diseases</h3>
+							<h3>(घातक रोग)</h3>>
+							<p>Production of healthy livestock helps to ensure a safe food supply and keep consumer prices stable.There are some hazardous diseases spreading among animals which are found to be fatal and life taking.
+
+							</p>
+							<a href="{% url 'Fdisease' %}"> <font size="+2">click here for details</font></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="single-about-detail">
+						<div class="about-img">
+							<img class="img-responsive" src="{% static 'img/item3.jpg' %}" alt="">
+						</div>
+						<div class="about-details">
+							<div class="pentagon-text">
+								<h1>H</h1>
+							</div>
+							<h3>Healthy lifestyle</h3>
+							<h3>(स्वस्थ जीवनशैली)
+</h3>							<p>
+								The compassionate lifelong care of cows ,goats and sheeps starts with the food they’re provided. 
+								While all have their own preferences and needs,In order to provide with the best care possible,
+								we must have basic understanding of their digestive system, eating habits, and nutritional needs.
+
+							</p>
+							<a href="{% url 'healthylife' %}"> <font size="+2">click here for details</font></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- end of about section -->
+
+
+	<!-- service section starts here -->
+	<section class="service text-center" id="service">
+		<div class="container">
+			<div class="row">
+				<h2>our services</h2>
+				
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="heart img-responsive" src="{% static 'img/service1.jpg' %}" alt="">
+							</div>
+						</div>
+						<h3>Online Consultation & Disease prediction</h3>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="brain img-responsive" src="{% static 'img/service2.jpg' %}" alt="">
+							</div>
+						</div>
+						<h3>Booking Appointment</h3>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="knee img-responsive" src="{% static 'img/service3.jpg' %}" alt="">
+							</div>
+						</div>
+						<h3>Call a Veterinarian</h3>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="single-service">
+						<div class="single-service-img">
+							<div class="service-img">
+								<img class="bone img-responsive" src="{% static 'img/service4.jpg' %}" alt="">
+							</div>
+						</div>
+						<h3>Animal Healthcare Info</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- end of service section -->
+
+
+	<!-- team section -->
+	<section class="team" id="team">
+		<div class="container">
+			<div class="row">
+				<div class="team-heading text-center">
+					<h2>Achievers</h2>
+					<h4><a href="https://www.pashudhanpraharee.com/legend-field-veterinarians-of-india-from-the-diary-of-dr-prof-jit-singh/"> <font size="+2">click here to know more and explore more achievers</font></a></h4>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member1.jpg' %}"alt="member-1">
+					</div>
+					<div class="person-detail">
+						<div class="arrow-bottom"></div>
+						<h3>Dr. Sanjeev Kumari Paul</h3>
+						<p>A graduate of 1993 and Masters( insevice candidate) in medicine(2001) from Veterinary College.. Palampur (HP).</p>
+					</div>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person-detail">
+						<div class="arrow-top"></div>
+						<h3>.Dr. Mohinder Oberoi</h3>
+						<p>a brilliant microbiologist. He did graduation( BVSc & AH ) from Hisar and Masters and PhD from Ludhiana (then PAU and now GADVASU).</p>
+					</div>
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member2.jpg' %}" alt="member-2">
+					</div>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member3.jpg' %}" alt="member-3">
+					</div>
+					<div class="person-detail">
+						<div class="arrow-bottom"></div>
+						<h3>Dr. Mamtani</h3>
+						<p>A technical journalist, Founder Editor of INTAS POLIVET and is doing a great service especially for promoting the technical and clinical work being done by field vets.</p>
+					</div>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person-detail">
+						<div class="arrow-top"></div>
+						<h3>Dr. Tapesh Mathur</h3>
+						<p>Meet DR. Tapesh Mathur BVSc&AH.. Senior Veterinary Officer..Govt of Rajasthan He makes amputee animals stand and walk with prosthetic limbs and that too free of cost.</p>
+					</div>
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member4.jpg' %}" alt="member-4">
+					</div>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member4.jpg' %}" alt="member-5">
+					</div>
+					<div class="person-detail">
+						<div class="arrow-bottom"></div>
+						<h3>Dr.Rajesh Kumar Singh</h3>
+						<p>Graduated from ORISSA Veterinary college,working as a Veterinary Officer in Jharkhand,authored 15 books,written 1400 books.</p>
+					</div>
+				</div>
+				<div class="col-md-2 single-member col-sm-4">
+					<div class="person-detail">
+						<div class="arrow-top"></div>
+						<h3>Dr.Geeta Sharma</h3>
+						<p>Dr.Geeta Sharma a Delhi Govt. Veterinary Officer. A pass out graduate of 2003 of Hisar Veterinary College she also holds MBA degree. She has been acclaimed in mutiple books.
+							</p>
+					</div>
+					<div class="person">
+						<img class="img-responsive" src="{% static 'img/member5.jpg' %}" alt="member-5">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- end of team section -->
+
+	<!-- map section -->
+	<div class="api-map" id="contact">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 map" id="map"></div>
+			</div>
+		</div>
+	</div><!-- end of map section -->
+
+	<!-- contact section starts here -->
+    <section class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-caption clearfix">
+                    <div class="contact-heading text-center">
+                        <h2>contact us</h2>
+                    </div>
+                    <div class="col-md-5 contact-info text-left">
+                        <h3>contact information</h3>
+                        <div class="info-detail">
+                            <ul><li><i class="fa fa-calendar"></i><span>Monday - Friday:</span> 8:30 AM to 8:30 PM</li></ul>
+                            <ul><li><i class="fa fa-map-marker"></i><span>Address:</span> Vashi, Navi-Mumbai></li></ul>
+                            <ul><li><i class="fa fa-phone"></i><span>Phone:</span> 9702541071</li></ul>
+                            <ul><li><i class="fa fa-envelope"></i><span>Email:</span> principal@fcrit.ac.in</li></ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-1 contact-form">
+                        <h3>leave us a message</h3>
+
+                        <form class="form" action="" method="POST">
+							{% csrf_token %}
+							 
+                            <input class="name" name="fname" type="text" placeholder="Name">
+                            <input class="email" name="email" type="email" placeholder="Email">
+                            <input class="phone" name="phone" type="text" placeholder="Phone No:">
+                            <textarea class="message" name="message" type="text" placeholder="Message"></textarea>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-block"> SUBMIT </button>
+							</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section><!-- end of contact section -->
+
+	<!-- footer starts here -->
+
+
+	<!-- script tags
+	============================================================= -->
+	<script src="{% static '/js/jquery-2.1.1.js' %}"></script>
+	
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.732104373434!2d72.98951561490115!3d19.07551268708821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6cae0d8c5ab%3A0xbbf4481d662ca2d8!2sFr.%20Conceicao%20Rodrigues%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1632046636534!5m2!1sen!2sin" width="1300" height=400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+	<script src="{% static '/js/smoothscroll.js' %}"></script>
+	<script src="{% static '/js/bootstrap.min.js' %}"></script>
+	<script src="{% static '/js/custom.js' %}"></script>
+</body>
+</html>

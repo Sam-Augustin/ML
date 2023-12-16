@@ -1,0 +1,276 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<!------ Include the above in your HEAD tag ---------->
+    <title>Prediction</title>
+</head>
+<body bg color="C0C0C0">
+	{% if messages %}
+	{% for message in messages %}
+	 {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+	{% endfor %}
+
+{% endif %} 
+	
+<br><br>
+<div class="container">
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 600px;" bg color="C0C0C0">
+	<h4 class="card-title mt-3 text-left">Disease Prediction</h4>
+	
+	<form action="" method="POST"  id="myForm">
+ 
+		{% csrf_token %}
+  
+
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-paw"></i> </span>
+		 </div>
+        <input name="Livestockowned" class="form-control" placeholder="Livestock owned" type="Livestock owned" required="required">
+    </div> 
+    
+  
+   
+
+ 
+    
+
+ <div class="form-group input-group">
+    <div class="centre">
+        <div class="form-group input-group">
+			<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-thermometer-three-quarters"></i> </span>
+				<select class="custom-select" name="DiseaseSymptom1" style="max-width: 340px;" id="symptoms" >
+					<option selected="">लक्षण चुनें (Select symptoms) </option>
+					<option selected="">लक्षण चुनें (Select symptoms) </option>
+					<option value="0">बुखार (Fever) </option>
+					<option value="1">गला खराब होना (Sore throat) </option>
+					<option value="2">खाँसी (Cough) </option>
+					<option value="3">सिर दर्द (Head Ache) </option>
+					<option value="4">मांसपेशियों में दर्द (Muscle pain) </option>
+					<option value="5">कठोर श्वास (Hard Breathing) </option>
+					<option value="6">आँख आना (Conjunctivitis) </option>
+					<option value="7">सुस्ती (Lethargy) </option>
+					<option value="9">अचानक मौत (Suddenly death) </option>
+					<option value="9">नाक बहना (Nasal discharge) </option>
+					<option value="10">अत्यधिक लार (Excess salivation) </option>
+					<option value="11">एनोरेक्सिया (Anorexia) </option>
+					<option value="12">दस्त (Diarrhea) </option>
+					<option value="13">न्यूमोनिया (Pneumonia) </option>
+					<option value="14">वजन घटना (Weightloss) </option>
+						<option value="15">पिंड (Nodules) </option>
+						<option value="16">त्वचा को नुकसान (Damage skin) </option>
+						<option value="17">मौखिक घाव (Oral lesions) </option>
+						<option value="18">छींक आना (Sneezing) </option>
+						<option value="19">कंपकंपी (Shudder) </option>
+						<option value="20">डूपिंगविंग्स (Drooping wings) </option>
+						<option value="21">पक्षाघात (Paralysis) </option>
+						<option value="22 ">सूजन संबंधी समस्या (Swelling of tissues) </option>
+						<option value="23">उत्पादन में कमी (Reduction in Production) </option>
+						<option value="24">सूजा हुआ सिर का चेहरा (Swollen head or face) </option>
+						<option value="25">आँखों का स्राव (Eye secretions) </option>
+						<option value="26">धीमी वृद्धि (Slow Growth) </option>
+						<option value="27">पपड़ीदार आंखें (Scaly Eyes) </option>
+						<option value="28">डूपिंगविंग्स (Drooping wings) </option>
+						<option value="29">असामान्य आकार और चारा की कठोरता (Abnormal size and hardness of udder) </option>
+						<option value="30">दूध का रंग बदलना (Milk color change) </option>
+						<option value="31">फोड़ा (Abscess) </option>
+						<option value="32">सूजी हुई लसीका ग्रंथियां (Swollen lymph nodes) </option>
+						<option value="33">बढ़ी हृदय की दर (Increased heart rate) </option>
+						<option value="34">पेट फूलना (Flatulence) </option>
+						<option value="35">शिकायत (Whining) </option>
+						<option value="36">उल्टी करना (Vomiting) </option>
+						<option value="37">दोहरी दृष्टि (Double vision) </option>
+						<option value="38">अनियमित चाल (Irregular gait) </option>
+						<option value="39">बेवजह चलना (Walks aimlessly) </option>
+						<option value="40">अंडकोष की सूजन (Swelling of testicles) </option>
+						<option value="41">पसीना आना (Sweating) </option>
+						<option value="42">मांसपेशियों में दर्दजोड़ों (Muscle pain in joints) </option>
+						<option value="43">नाकसाल्मुकोसा की सूजन (Inflammation of nasal mucosa) </option>
+						<option value="44">त्वचा क्षति (Skin lesions)) </option>
+						<option value="45">बैंगनी रंग की जीभ (Purple coloured tongue) </option>
+						<option value="46">लैगड़ापन (Lameness) </option>
+						<option value="47">पीली आंखें (Paleeyes) </option>
+						<option value="48">आक्रामक व्यवहार (Aggressive behaviour) </option>
+						<option value="49">खुजली (Pruritus) </option>
+						<option value="50">ऐंठन (Tenesmus) </option>
+						<option value="51">शराबी पंख (Fluffy feathers) </option>
+						<option value="52">बंद आंखों से (Eyes closed) </option>
+						<option value="53">झालरदार पंख (Ruffled feathers) </option>
+						<option value="54">व्यवहार में परिवर्तन (changes in behaviour) </option>
+						<option value="55">सूजी हुई पलकें (Swollen eyelids) </option>
+			</select>
+			</div>
+		<div class="form-group input-group">
+	<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-thermometer-three-quarters"></i> </span>
+		<select class="custom-select" name="DiseaseSymptom2" style="max-width: 340px;" id="symptoms">
+			<option selected="">लक्षण चुनें (Select symptoms) </option>
+		<option value="0">बुखार (Fever) </option>
+		<option value="1">गला खराब होना (Sore throat) </option>
+		<option value="2">खाँसी (Cough) </option>
+		<option value="3">सिर दर्द (Head Ache) </option>
+		<option value="4">मांसपेशियों में दर्द (Muscle pain) </option>
+		<option value="5">कठोर श्वास (Hard Breathing) </option>
+		<option value="6">आँख आना (Conjunctivitis) </option>
+		<option value="7">सुस्ती (Lethargy) </option>
+		<option value="9">अचानक मौत (Suddenly death) </option>
+		<option value="9">नाक बहना (Nasal discharge) </option>
+		<option value="10">अत्यधिक लार (Excess salivation) </option>
+		<option value="11">एनोरेक्सिया (Anorexia) </option>
+		<option value="12">दस्त (Diarrhea) </option>
+		<option value="13">न्यूमोनिया (Pneumonia) </option>
+		<option value="14">वजन घटना (Weightloss) </option>
+		    <option value="15">पिंड (Nodules) </option>
+		    <option value="16">त्वचा को नुकसान (Damage skin) </option>
+		    <option value="17">मौखिक घाव (Oral lesions) </option>
+			<option value="18">छींक आना (Sneezing) </option>
+			<option value="19">कंपकंपी (Shudder) </option>
+		    <option value="20">डूपिंगविंग्स (Drooping wings) </option>
+			<option value="21">पक्षाघात (Paralysis) </option>
+			<option value="22 ">सूजन संबंधी समस्या (Swelling of tissues) </option>
+		    <option value="23">उत्पादन में कमी (Reduction in Production) </option>
+			<option value="24">सूजा हुआ सिर का चेहरा (Swollen head or face) </option>
+		    <option value="25">आँखों का स्राव (Eye secretions) </option>
+			<option value="26">धीमी वृद्धि (Slow Growth) </option>
+			<option value="27">पपड़ीदार आंखें (Scaly Eyes) </option>
+		    <option value="28">डूपिंगविंग्स (Drooping wings) </option>
+			<option value="29">असामान्य आकार और चारा की कठोरता (Abnormal size and hardness of udder) </option>
+		    <option value="30">दूध का रंग बदलना (Milk color change) </option>
+			<option value="31">फोड़ा (Abscess) </option>
+		    <option value="32">सूजी हुई लसीका ग्रंथियां (Swollen lymph nodes) </option>
+			<option value="33">बढ़ी हृदय की दर (Increased heart rate) </option>
+		    <option value="34">पेट फूलना (Flatulence) </option>
+			<option value="35">शिकायत (Whining) </option>
+		    <option value="36">उल्टी करना (Vomiting) </option>
+			<option value="37">दोहरी दृष्टि (Double vision) </option>
+		    <option value="38">अनियमित चाल (Irregular gait) </option>
+		    <option value="39">बेवजह चलना (Walks aimlessly) </option>
+		    <option value="40">अंडकोष की सूजन (Swelling of testicles) </option>
+			<option value="41">पसीना आना (Sweating) </option>
+			<option value="42">मांसपेशियों में दर्दजोड़ों (Muscle pain in joints) </option>
+		    <option value="43">नाकसाल्मुकोसा की सूजन (Inflammation of nasal mucosa) </option>
+			<option value="44">त्वचा क्षति (Skin lesions)) </option>
+		    <option value="45">बैंगनी रंग की जीभ (Purple coloured tongue) </option>
+		    <option value="46">लैगड़ापन (Lameness) </option>
+		    <option value="47">पीली आंखें (Paleeyes) </option>
+			<option value="48">आक्रामक व्यवहार (Aggressive behaviour) </option>
+		    <option value="49">खुजली (Pruritus) </option>
+		    <option value="50">ऐंठन (Tenesmus) </option>
+		    <option value="51">शराबी पंख (Fluffy feathers) </option>
+			<option value="52">बंद आंखों से (Eyes closed) </option>
+			<option value="53">झालरदार पंख (Ruffled feathers) </option>
+		    <option value="54">व्यवहार में परिवर्तन (changes in behaviour) </option>
+			<option value="55">सूजी हुई पलकें (Swollen eyelids) </option>
+	</select>
+	</div>
+	<div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-thermometer-three-quarters"></i> </span>
+	<select class="custom-select" name="DiseaseSymptom3" style="max-width: 340px;" id="symptoms">
+		<option selected="">लक्षण चुनें (Select symptoms) </option>
+		<option value="0">बुखार (Fever) </option>
+		<option value="1">गला खराब होना (Sore throat) </option>
+		<option value="2">खाँसी (Cough) </option>
+		<option value="3">सिर दर्द (Head Ache) </option>
+		<option value="4">मांसपेशियों में दर्द (Muscle pain) </option>
+		<option value="5">कठोर श्वास (Hard Breathing) </option>
+		<option value="6">आँख आना (Conjunctivitis) </option>
+		<option value="7">सुस्ती (Lethargy) </option>
+		<option value="9">अचानक मौत (Suddenly death) </option>
+		<option value="9">नाक बहना (Nasal discharge) </option>
+		<option value="10">अत्यधिक लार (Excess salivation) </option>
+		<option value="11">एनोरेक्सिया (Anorexia) </option>
+		<option value="12">दस्त (Diarrhea) </option>
+		<option value="13">न्यूमोनिया (Pneumonia) </option>
+		<option value="14">वजन घटना (Weightloss) </option>
+		    <option value="15">पिंड (Nodules) </option>
+		    <option value="16">त्वचा को नुकसान (Damage skin) </option>
+		    <option value="17">मौखिक घाव (Oral lesions) </option>
+			<option value="18">छींक आना (Sneezing) </option>
+			<option value="19">कंपकंपी (Shudder) </option>
+		    <option value="20">डूपिंगविंग्स (Drooping wings) </option>
+			<option value="21">पक्षाघात (Paralysis) </option>
+			<option value="22 ">सूजन संबंधी समस्या (Swelling of tissues) </option>
+		    <option value="23">उत्पादन में कमी (Reduction in Production) </option>
+			<option value="24">सूजा हुआ सिर का चेहरा (Swollen head or face) </option>
+		    <option value="25">आँखों का स्राव (Eye secretions) </option>
+			<option value="26">धीमी वृद्धि (Slow Growth) </option>
+			<option value="27">पपड़ीदार आंखें (Scaly Eyes) </option>
+		    <option value="28">डूपिंगविंग्स (Drooping wings) </option>
+			<option value="29">असामान्य आकार और चारा की कठोरता (Abnormal size and hardness of udder) </option>
+		    <option value="30">दूध का रंग बदलना (Milk color change) </option>
+			<option value="31">फोड़ा (Abscess) </option>
+		    <option value="32">सूजी हुई लसीका ग्रंथियां (Swollen lymph nodes) </option>
+			<option value="33">बढ़ी हृदय की दर (Increased heart rate) </option>
+		    <option value="34">पेट फूलना (Flatulence) </option>
+			<option value="35">शिकायत (Whining) </option>
+		    <option value="36">उल्टी करना (Vomiting) </option>
+			<option value="37">दोहरी दृष्टि (Double vision) </option>
+		    <option value="38">अनियमित चाल (Irregular gait) </option>
+		    <option value="39">बेवजह चलना (Walks aimlessly) </option>
+		    <option value="40">अंडकोष की सूजन (Swelling of testicles) </option>
+			<option value="41">पसीना आना (Sweating) </option>
+			<option value="42">मांसपेशियों में दर्दजोड़ों (Muscle pain in joints) </option>
+		    <option value="43">नाकसाल्मुकोसा की सूजन (Inflammation of nasal mucosa) </option>
+			<option value="44">त्वचा क्षति (Skin lesions)) </option>
+		    <option value="45">बैंगनी रंग की जीभ (Purple coloured tongue) </option>
+		    <option value="46">लैगड़ापन (Lameness) </option>
+		    <option value="47">पीली आंखें (Paleeyes) </option>
+			<option value="48">आक्रामक व्यवहार (Aggressive behaviour) </option>
+		    <option value="49">खुजली (Pruritus) </option>
+		    <option value="50">ऐंठन (Tenesmus) </option>
+		    <option value="51">शराबी पंख (Fluffy feathers) </option>
+			<option value="52">बंद आंखों से (Eyes closed) </option>
+			<option value="53">झालरदार पंख (Ruffled feathers) </option>
+		    <option value="54">व्यवहार में परिवर्तन (changes in behaviour) </option>
+			<option value="55">सूजी हुई पलकें (Swollen eyelids) </option>
+</select>
+</div>
+    </div>
+	
+	
+                                 
+    <div class="form-group"><input type="submit" class="btnSubmit" value="submit" /><br>
+    </div>
+</div>
+
+	<div class="form-group input-group">
+    	<div class="list">
+		 <div>
+			<h1>Predicted Disease</h1>
+			</div>
+			
+		<h3>{{v}}</h3>
+    </div> 
+</div>
+	           
+	</div>
+</form>
+
+</article>
+
+
+</div> 
+<br><br>
+
+</body>
+</html>
